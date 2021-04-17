@@ -32,6 +32,11 @@ bool delElem(List* list, void* elem);
 size_t lengh(List* list);
 bool delElmByNumber(List* list, size_t number);
 
+int makeInt(Node* node);
+
+void print(List* list, int (*makeType)(Node* node));
+bool isSorted(List* list);
+
 
 
 #endif //LIST_LIST_H

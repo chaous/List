@@ -3,6 +3,7 @@
 //
 #include "List.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 
 List *initList(List *list) {
@@ -25,7 +26,7 @@ void addElem(List* list, void *newElem) {
 }
 
 Node *initNode(void *NewElem) {
-    Node* node = (Node*) malloc(sizeof(Node));
+    Node* node = (Node*)malloc(sizeof(Node));
     node->elem = NewElem;
     node->node = NULL;
     return node;
@@ -90,4 +91,34 @@ bool delElmByNumber(List *list, size_t number) {
     free(delElem);
     return true;
 
+}
+
+int makeInt(Node *node) {
+    int elem = *(int *)(node->elem);
+    return elem;
+}
+
+void print(List *list, int (*makeType)(Node *)) {
+    Node* node = list->node;
+    while(node != 0)
+    {
+        int elem = (*makeType)(node);
+        printf("%d->", elem);
+        node = node->node;
+    }
+    printf("NULL\n");
+
+}
+
+bool isSorted(List *list) {
+    Node* node = list->node;
+    if(node == NULL)
+        return true;
+    while (node != NULL)
+    {
+        if(node->elem < node->node->elem)
+            return false;
+        node = node->node;
+    }
+    return true;
 }
