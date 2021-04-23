@@ -35,7 +35,7 @@ bool delElmByNumber(List* list, size_t number);
 int makeInt(Node* node);
 
 void print(List* list, int (*makeType)(Node* node));
-bool isSorted(List* list);
+bool isSorted(List* list, bool (*comp)(Node* a), Node* b);
 
 
 

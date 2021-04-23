@@ -110,7 +110,7 @@ void print(List *list, int (*makeType)(Node *)) {
 
 }
 
-bool isSorted(List *list) {
+bool isSorted(List *list, bool (*comp)(Node *), Node *b) {
     Node* node = list->node;
     if(node == NULL)
         return true;
@@ -122,3 +122,5 @@ bool isSorted(List *list) {
     }
     return true;
 }
+
+
