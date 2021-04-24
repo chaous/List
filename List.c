@@ -47,8 +47,14 @@ bool delElem(List *list, void *elem) {
             free(node);
             return true;
         }
-            while (*(int *) (node->node->elem) != value)
-                node = node->node;
+        if(node->node == NULL)
+            return false;
+        while (*(int *) (node->node->elem) != value)
+        {
+            node = node->node;
+            if(node->node == NULL)
+                return false;
+        }
             if (*(int *) (node->node->elem) == value) {
                 Node *delElem = node->node;
                 node->node = delElem->node;
@@ -66,8 +72,14 @@ bool delElem(List *list, void *elem) {
                 free(node);
                 return true;
             }
-                while(*(char*)(node->node->elem) != value)
-                    node = node->node;
+            if(node->node == NULL)
+                return false;
+            while (*(int *) (node->node->elem) != value)
+            {
+                node = node->node;
+                if(node->node == NULL)
+                    return false;
+            }
                 if(*(char*)(node->node->elem) == value) {
                     Node *delElem = node->node;
                     node->node = delElem->node;
@@ -85,8 +97,14 @@ bool delElem(List *list, void *elem) {
             free(node);
             return true;
         }
-            while(*(double*)(node->node->elem) != value)
-                node = node->node;
+        if(node->node == NULL)
+            return false;
+        while (*(int *) (node->node->elem) != value)
+        {
+            node = node->node;
+            if(node->node == NULL)
+                return false;
+        }
             if(*(double*)(node->node->elem) == value) {
                 Node *delElem = node->node;
                 node->node = delElem->node;
@@ -104,8 +122,14 @@ bool delElem(List *list, void *elem) {
             free(node);
             return true;
         }
-            while(*(long long*)(node->node->elem) != value)
-                node = node->node;
+        if(node->node == NULL)
+            return false;
+        while (*(int *) (node->node->elem) != value)
+        {
+            node = node->node;
+            if(node->node == NULL)
+                return false;
+        }
             if(*(long long*)(node->node->elem) == value) {
                 Node *delElem = node->node;
                 node->node = delElem->node;
@@ -124,8 +148,14 @@ bool delElem(List *list, void *elem) {
             return true;
         }
 
-            while(*(float*)(node->node->elem) != value)
-                node = node->node;
+        if(node->node == NULL)
+            return false;
+        while (*(int *) (node->node->elem) != value)
+        {
+            node = node->node;
+            if(node->node == NULL)
+                return false;
+        }
             if(*(float*)(node->node->elem) == value) {
                 Node *delElem = node->node;
                 node->node = delElem->node;
@@ -234,6 +264,8 @@ bool compInt(Node *a, Node *b) {
 }
 
 void destroyList(List *list) {
+    if(list->node == NULL)
+        return;
     Node* node = list->node;
     while(node->node != NULL)
     {

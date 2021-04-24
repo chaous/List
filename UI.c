@@ -90,6 +90,7 @@ void getInput() {
             printf("number\n");
             scanf("%i", &elem);
             delElmByNumber(&list, elem);
+            printList(&list);
         }
         if(input == 'p')
             printList(&list);
