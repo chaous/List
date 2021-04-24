@@ -3,4 +3,4 @@ project(List C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(List main.c List.h List.c ListIterator.h ListIterator.c)
+add_executable(List main.c List.h List.c ListIterator.h ListIterator.c UI.h UI.c)
